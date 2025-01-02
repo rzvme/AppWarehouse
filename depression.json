@@ -16,7 +16,7 @@
                 },
                 {
                     "name":"create namespace",
-                    "command": "export KUBECONFIG=/home/LordGrighy/thorgate/k3s.yml && kubectl delete namespace depression && kubectl create namespace depression --dry-run=client -o yaml | kubectl apply -f - "
+                    "command": "export KUBECONFIG=/home/LordGrighy/thorgate/k3s.yml && kubectl create namespace depression --dry-run=client -o yaml | kubectl apply -f - "
                 },
                 {
                     "name":"apply deployment",
