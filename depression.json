@@ -20,7 +20,7 @@
                 },
                 {
                     "name":"apply deployment",
-                    "command": "export KUBECONFIG=/home/LordGrighy/thorgate/k3s.yml && kubectl apply -f deployment.yaml -n depressio"
+                    "command": "export KUBECONFIG=/home/LordGrighy/thorgate/k3s.yml && kubectl apply -f deployment.yaml -n depression"
                 }
             ]
         }
