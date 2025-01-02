@@ -1,0 +1,41 @@
+{
+    "appName": "CV",
+    "repository": "https://github.com/rzvme/cv2",
+    "stages":[
+      {
+            "name":"build",
+            "steps":[
+                {
+                    "name":"docker build",
+                    "command":"docker build -t cv . "
+                },
+                {
+                    "name":"docker tag",
+                    "command":"docker tag cv thorgate.local:5000/cv"
+                },
+                {
+                    "name":"docker push",
+                    "command":"docker push thorgate.local:5000/cv"
+                }
+            ]
+            
+        },
+        {
+            "name":"deploy",
+            "steps":[
+                {
+                    "name":"delete namespace",
+                    "command": "export KUBECONFIG=/home/LordGrighy/thorgate/k3s.yml && kubectl delete namespace cvrzv"
+                },
+                {
+                    "name":"create namespace",
+                    "command": "export KUBECONFIG=/home/LordGrighy/thorgate/k3s.yml &&  kubectl create namespace cvrzv --dry-run=client -o yaml | kubectl apply -f -"
+                },
+                {
+                    "name":"apply deployment",
+                    "command": "export KUBECONFIG=/home/LordGrighy/thorgate/k3s.yml && kubectl apply -f ./deployment.yaml"
+                },
+            ]
+        }
+    ]
+}
