@@ -1,0 +1,28 @@
+{
+    "appName": "depression",
+    "repository": "https://github.com/rzvme/depression",
+    "stages":[
+        {
+            "name":"build",
+            "steps":[]
+            
+        },
+        {
+            "name":"deploy",
+            "steps":[
+                {
+                    "name":"delete namespace",
+                    "command": "export KUBECONFIG=/home/LordGrighy/thorgate/k3s.yml && kubectl delete namespace depression "
+                },
+                {
+                    "name":"create namespace",
+                    "command": "export KUBECONFIG=/home/LordGrighy/thorgate/k3s.yml && kubectl delete namespace depression && kubectl create namespace depression --dry-run=client -o yaml | kubectl apply -f - "
+                },
+                {
+                    "name":"apply deployment",
+                    "command": "export KUBECONFIG=/home/LordGrighy/thorgate/k3s.yml && kubectl apply -f deployment.yaml -n depressio"
+                }
+            ]
+        }
+    ]
+}
