@@ -11,7 +11,7 @@
                 },
                 {
                     "name":"docker tag",
-                    "command":"docker tag cv thorgate.local:5000/picsrus"
+                    "command":"docker tag picsrus thorgate.local:5000/picsrus"
                 },
                 {
                     "name":"docker push",
