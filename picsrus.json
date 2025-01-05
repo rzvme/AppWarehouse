@@ -31,6 +31,7 @@
                 {
                     "name":"create namespace",
                     "command": "export KUBECONFIG=/home/LordGrighy/thorgate/k3s.yml &&  kubectl create namespace picsrus --dry-run=client -o yaml | kubectl apply -f -"
+                },
                 {
                     "name":"apply deployment",
                     "command": "export KUBECONFIG=/home/LordGrighy/thorgate/k3s.yml && kubectl apply -f ./deployment.yaml"
