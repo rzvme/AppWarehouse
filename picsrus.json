@@ -24,12 +24,8 @@
             "name":"deploy",
             "steps":[
                 {
-                    "name":"delete namespace",
-                    "command": "export KUBECONFIG=/home/LordGrighy/thorgate/k3s.yml && kubectl delete namespace picsrus"
-                },
-                {
-                    "name":"create namespace",
-                    "command": "export KUBECONFIG=/home/LordGrighy/thorgate/k3s.yml &&  kubectl create namespace picsrus --dry-run=client -o yaml | kubectl apply -f -"
+                    "name":"delete deployment",
+                    "command": "export KUBECONFIG=/home/LordGrighy/thorgate/k3s.yml && kubectl delete deployment picsrus -n picsrus"
                 },
                 {
                     "name":"apply deployment",
