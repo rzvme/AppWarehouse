@@ -13,6 +13,7 @@
                     "name":"docker tag",
                     "command":"docker tag cv thorgate.local:5000/cv"
                 },
+                
                 {
                     "name":"docker push",
                     "command":"docker push thorgate.local:5000/cv"
@@ -31,6 +32,14 @@
                     "name":"create namespace",
                     "command": "export KUBECONFIG=/home/LordGrighy/thorgate/k3s.yml &&  kubectl create namespace cvrzv --dry-run=client -o yaml | kubectl apply -f -"
                 },
+                {
+                    "name":"apply certmanager",
+                    "command": "export KUBECONFIG=/home/LordGrighy/thorgate/k3s.yml && kubectl apply -f ./certmanager.yaml"
+                },                
+                {
+                    "name":"apply ingress",
+                    "command": "export KUBECONFIG=/home/LordGrighy/thorgate/k3s.yml && kubectl apply -f ./ingress.yaml"
+                },                
                 {
                     "name":"apply deployment",
                     "command": "export KUBECONFIG=/home/LordGrighy/thorgate/k3s.yml && kubectl apply -f ./deployment.yaml"
