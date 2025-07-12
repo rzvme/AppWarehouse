@@ -10,12 +10,12 @@
                     "command":"sed -i 's|<<webhookurl>>|'$webhook'|g' server.js"
                 },
                 {
-                    "name":"delete server.js file",
-                    "command":"rm -f server.js"
-                },
-                {
                     "name":"docker build",
                     "command":"docker build -t cv . "
+                },
+                {
+                    "name":"delete server.js file",
+                    "command":"rm -f server.js"
                 },
                 {
                     "name":"docker tag",
