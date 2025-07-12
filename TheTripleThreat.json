@@ -6,6 +6,10 @@
             "name":"build",
             "steps":[
                 {
+                    "name":"replace discord webhook url",
+                    "command":"sed -i 's|<<webhookurl>>|'$webhook'|g' server.js"
+                },
+                {
                     "name":"docker build",
                     "command":"docker build -t cv . "
                 },
@@ -13,7 +17,6 @@
                     "name":"docker tag",
                     "command":"docker tag cv thorgate.local:5000/tttguildhub"
                 },
-                
                 {
                     "name":"docker push",
                     "command":"docker push thorgate.local:5000/tttguildhub"
